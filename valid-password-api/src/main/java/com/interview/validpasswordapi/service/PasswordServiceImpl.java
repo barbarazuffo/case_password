@@ -18,7 +18,7 @@ public class PasswordServiceImpl implements PasswordService {
 
     @Override
     public boolean passwordValidation(String password) throws RuntimeException {
-        log.info("Inicinado validação da senha...");
+        log.info("Iniciando validação");
         return passwordDomain.validatePassword(password);
     }
 }
