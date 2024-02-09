@@ -38,7 +38,7 @@ public class PasswordDomainImpl implements PasswordDomain{
             throw new InvalidPasswordException("Senha nâo contem caracteres especiais");
         } else if (password.contains(passwordSpace)){
             throw new InvalidPasswordException("Senha contem espaço");
-        } else if (Pattern.matches(passwordRepeat,password)){
+        } else if (Pattern.matches("^(?!.*(.).*\1).+$",password)){
             throw new InvalidPasswordException("Senha contem caractere repetido");
         }
         return true;  // Senha válida
