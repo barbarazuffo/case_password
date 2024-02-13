@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PasswordController {
     @Autowired
-    private PasswordServiceImpl passwordService;
+    private PasswordServiceImpl service;
 
     @PostMapping("/validation")
     public ResponseEntity<Output> passwordValidation(@RequestBody Input input) {
 
         try {
-            boolean output = passwordService.passwordValidation(input.getPassword());
-            System.out.println(output);
-            return ResponseEntity.ok(new Output(output));
+            boolean output = service.passwordValidation(input.getPassword());
+            return ResponseEntity.ok(new Output(output,"Sucess"));
         } catch (InvalidPasswordException e) {
-            return ResponseEntity.ok(new Output(false));
+            return ResponseEntity.ok(new Output(false, e.getMessage()));
         }
     }
 }
