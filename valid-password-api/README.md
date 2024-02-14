@@ -15,8 +15,7 @@ Aplicação para validar um input de senha de acordo com critérios específicos
 
 ## Estrutura do projeto
 A estrutura do projeto promove a separação de preocupações, tornando o código mais modular e fácil de manter. 
-Cada componente tem uma responsabilidade clara e interage com os outros de maneira definida.
-
+Cada componente tem uma responsabilidade clara e interage com os outros de maneira definida. 
 
 ```bash
 -controller
@@ -39,17 +38,15 @@ Cada componente tem uma responsabilidade clara e interage com os outros de manei
 - **Controller**
   - Faz a mediação da entrada e saída.
 - **Domain**
-  - Consiste na parte lógica da aplicação, que gerencia o comportamento dos dados através de regras de negócios.
+  - Parte lógica da aplicação, gerencia o comportamento dos dados através de regras de negócios.
 - **Exception**
-  - Exceções do projeto
-- **Sodel**
-  - Dados Input e Output
+  - Exceções personalizadas.
+- **Model**
+  - Dados Input e Output.
 - **Service**
-  - Inicia o log 
-  - 
+  - Inicia o log.
 - **ValidPasswordApiApplication**
-  - Inicia a aplicação
-
+  - Inicia a aplicação.
 
 ## Como usar
 ### Pré requisitos
@@ -58,7 +55,7 @@ Para começar sera necessario as seguintes instalações:
 - Maven 3.9.6
 - IDE (Desenvolvida no intellij)
 - Git
-- Postman(Qualquer plataforma para testar reuisições)
+- Postman(Qualquer plataforma para testar requisições)
 
 ### Executar a aplicação
  - Clonando o repositório no computador
