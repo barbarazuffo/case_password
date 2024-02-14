@@ -20,52 +20,54 @@ class PasswordDomainImplTest {
     public PasswordDomainImpl domain = new PasswordDomainImpl(8,"^(?=.*[!@#$%^&*()-+]).*$", "^(?=.*[a-z]).*$", "^(?=.*[A-Z]).*$", "^(?=.*[0-9]).*$", "  ", ".*(.).*\\1.*");
 
     @Test
-    @DisplayName("Senha contem menos de 8 caracteres")
-    public void testInvalidPasswordSize() {
-        InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("aa"));
-        assertEquals("Senha contem menos de 8 caracteres", excecao.getMessage());
+    @DisplayName("testValidPassword")
+    public void testValidPassword() {
+
+        boolean output = domain.validatePassword("aeBFD123!");
+        assertTrue(output);
 
     }
     @Test
-    @DisplayName("Senha nâo contem letras minusculas")
+    @DisplayName("testInvalidPasswordSize")
+    public void testInvalidPasswordSize() {
+        InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("aa"));
+        assertEquals("Senha contem menos de 9 caracteres", excecao.getMessage());
+
+    }
+    @Test
+    @DisplayName("testInvalidPasswordLower")
     public void testInvalidPasswordLower() {
         InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("ABCD1234!"));
-
         assertEquals("Senha nâo contem letras minusculas", excecao.getMessage());
     }
     @Test
-    @DisplayName("Senha nâo contem letras maiusculas")
+    @DisplayName("testInvalidPasswordUpper")
     public void testInvalidPasswordUpper() {
         InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("ascv1234!"));
-
         assertEquals("Senha nâo contem letras maiusculas", excecao.getMessage());
     }
     @Test
-    @DisplayName("Senha contem espaço")
+    @DisplayName("testInvalidPasswordCharacters")
     public void testInvalidPasswordCharacters() {
         InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("Asdf12! R"));
-
         assertEquals("Senha contem espaço", excecao.getMessage());
     }
     @Test
-    @DisplayName("Senha nâo contem número")
+    @DisplayName("testInvalidPasswordNumber")
     public void testInvalidPasswordNumber() {
         InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("abcDEF!@hi"));
-
         assertEquals("Senha nâo contem número", excecao.getMessage());
     }
     @Test
-    @DisplayName("Senha nâo contem caracteres especiais")
+    @DisplayName("testInvalidPasswordSpace")
     public void testInvalidPasswordSpace() {
         InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("123abcABC"));
-
         assertEquals("Senha nâo contem caracteres especiais", excecao.getMessage());
     }
     @Test
-    @DisplayName("Senha contem caractere repetidos")
+    @DisplayName("testInvalidPasswordRepeat")
     public void testInvalidPasswordRepeat() {
         InvalidPasswordException excecao = assertThrows(InvalidPasswordException.class, () -> domain.validatePassword("aba@21csAs"));
-
         assertEquals("Senha contem caractere repetido", excecao.getMessage());
     }
 }

@@ -4,7 +4,6 @@ import com.interview.validpasswordapi.exception.InvalidPasswordException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 import java.util.regex.Pattern;
 
 @Slf4j
@@ -35,12 +34,11 @@ public class PasswordDomainImpl implements PasswordDomain{
         this.passwordRepeat = passwordRepeat;
     }
 
-
 @Override
     public boolean validatePassword(String password) throws InvalidPasswordException {
 
         if (password == null || password.length() <= passwordSize) {
-            throw new InvalidPasswordException("Senha contem menos de 8 caracteres");
+            throw new InvalidPasswordException("Senha contem menos de 9 caracteres");
         } else if (!Pattern.matches(passwordNumber, password)){
             throw new InvalidPasswordException("Senha nâo contem número");
         } else if (!Pattern.matches(passwordLower, password)){

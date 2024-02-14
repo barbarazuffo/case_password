@@ -11,16 +11,44 @@ Indice
       * [1.3.3 Executar os Testes](#Executar-os-testes)
 <!--te-->
 ## Sobre
-Aplicação para validar um input de senha de acordo com critérios específicos, caso seja invalida retorna o motivo.
+Aplicação para validar um input de senha de acordo com critérios específicos, caso seja invalida retona o motivo.
 
 ## Estrutura do projeto
-A aplicação foi projetada seguindo a linha do MVC - model, view, controller. O MVC promove a separação de preocupações, tornando o código mais modular, escalável e fácil de manter. Cada componente tem uma responsabilidade clara e interage com os outros de maneira definida.
+A estrutura do projeto promove a separação de preocupações, tornando o código mais modular e fácil de manter. 
+Cada componente tem uma responsabilidade clara e interage com os outros de maneira definida.
 
-- **Modelo:** é a ponte entre as camadas Visão (View) e Controle (Controller), consiste na parte lógica da aplicação, que gerencia o comportamento dos dados através de regras de negócios, lógica e funções.
 
-- **Visão:** pode ser qualquer saída de representação dos dados. É onde os dados solicitados do Modelo (Model) são exibidos.
+```bash
+-controller
+  -PasswordController
+-domain
+  -PasswordDomain
+  -PasswordDomainImpl
+-exception
+  -InvalidPasswordException
+-model
+  -Input
+  -Output
+-service
+  -PasswordService
+  -PasswordServiceImpl
+  -PasswordDomainImpl
+-ValidPasswordApiApplication
+```
 
-- **Controlador:** faz a mediação da entrada e saída, comandando a visão e o modelo para serem alterados de forma apropriada.
+- **Controller**
+  - Faz a mediação da entrada e saída.
+- **Domain**
+  - Consiste na parte lógica da aplicação, que gerencia o comportamento dos dados através de regras de negócios.
+- **Exception**
+  - Exceções do projeto
+- **Sodel**
+  - Dados Input e Output
+- **Service**
+  - Inicia o log 
+  - 
+- **ValidPasswordApiApplication**
+  - Inicia a aplicação
 
 
 ## Como usar
