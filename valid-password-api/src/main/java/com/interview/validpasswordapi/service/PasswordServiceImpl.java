@@ -1,6 +1,7 @@
 package com.interview.validpasswordapi.service;
 
 import com.interview.validpasswordapi.domain.PasswordDomainImpl;
+import com.interview.validpasswordapi.exception.InvalidPasswordException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,15 +11,15 @@ import org.springframework.stereotype.Service;
 public class PasswordServiceImpl implements PasswordService {
 
     @Autowired
-    private final PasswordDomainImpl passwordDomain;
+    private final PasswordDomainImpl domain;
 
-    public PasswordServiceImpl(PasswordDomainImpl passwordDomain) {
-        this.passwordDomain = passwordDomain;
+    public PasswordServiceImpl(PasswordDomainImpl domain) {
+        this.domain = domain;
     }
 
     @Override
-    public boolean passwordValidation(String password) throws RuntimeException {
+    public boolean passwordValidation(String password) throws InvalidPasswordException {
         log.info("Iniciando validação");
-        return passwordDomain.validatePassword(password);
+        return domain.validatePassword(password);
     }
 }

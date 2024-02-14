@@ -2,12 +2,12 @@ package com.interview.validpasswordapi.model;
 
 public class Output {
     private boolean answer;
-    private String errorMessage;
+    private String message;
 
-    public Output(boolean answer, String errorMessage) {
 
+    public Output(boolean answer, String message) {
         this.answer = answer;
-        this.errorMessage = errorMessage;
+        this.message = message;
     }
     public boolean isAnswer() {
         return answer;
@@ -17,12 +17,11 @@ public class Output {
         this.answer = answer;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
+    public void setMessage(String message) {this.message = message; }
+
 
 }

@@ -18,7 +18,7 @@ public class PasswordController {
 
         try {
             boolean output = service.passwordValidation(input.getPassword());
-            return ResponseEntity.ok(new Output(output,"Sucess"));
+            return ResponseEntity.ok(new Output(output,"Senha Compativel"));
         } catch (InvalidPasswordException e) {
             return ResponseEntity.ok(new Output(false, e.getMessage()));
         }
