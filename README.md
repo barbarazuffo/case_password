@@ -5,12 +5,9 @@
 ```shell
 git clone "https://github.com/barbarazuffo/case_password.git"
 ```
+- Abrir projeto pela IDE na pasta: \case_password\valid-password-api
 - Entrar na develop
 ```shell
 git checkout develop
-```
-- Entrar na pasta certa do projeto
-```shell
-cd .\valid-password-api
 ```
 - Ler o README.md
